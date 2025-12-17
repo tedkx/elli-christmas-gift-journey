@@ -223,7 +223,6 @@ const animatePath = () => {
   const deliveryDate = new Date(2026, 0, 20);
   const timeDiff = deliveryDate - today;
   daysLeft = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
-  daysLeft = 5;
 
   countdownDayElem.innerText = daysLeft;
 
