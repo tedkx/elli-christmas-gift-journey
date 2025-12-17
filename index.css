@@ -1,0 +1,356 @@
+:root {
+  --text-color: #fafbfa;
+  --color-red: #983964;
+  /* --color-red-lights: #ff0000; */
+  --color-red-lights: #ee3827;
+  --color-green: #59a05c;
+  --color-blue: #415f9d;
+  --content-padding: 12px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Pixelify Sans", "Tiny5", monospace, serif;
+  font-size: 24px;
+  color: var(--text-color);
+  background: #041147;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+.clickable:active {
+  transform: translateY(2px);
+}
+
+#frame-tl,
+#frame-tr,
+#frame-bl,
+#frame-br {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background-repeat: no-repeat;
+  z-index: 0;
+  background-size: 100px;
+}
+#frame-tl {
+  top: 0;
+  left: 0;
+  background-image: url("images/frame-tl.png");
+  background-size: 102px;
+}
+#frame-tr {
+  top: 0;
+  right: 0;
+  background-image: url("images/frame-tr.png");
+  background-position: top right;
+}
+#frame-bl {
+  bottom: 0;
+  left: 0;
+  background-image: url("images/frame-bl.png");
+  background-position: bottom left;
+}
+#frame-br {
+  bottom: 0;
+  right: 0;
+  background-image: url("images/frame-br.png");
+  background-position: bottom right;
+  background-size: 99px;
+}
+#frame-top,
+#frame-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background-repeat: repeat-x;
+  z-index: 0;
+  background-size: 100px;
+}
+#frame-top {
+  top: 0;
+  background-image: url("images/frame-top.png");
+  background-size: 86px;
+}
+#frame-bottom {
+  bottom: 0;
+  background-image: url("images/frame-bottom.png");
+  background-position: bottom center;
+  background-size: 118px;
+}
+#frame-right,
+#frame-left {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 125px;
+  background-repeat: repeat-y;
+  z-index: 0;
+  background-size: 37px;
+}
+#frame-left {
+  left: 0;
+  background-image: url("images/frame-left.png");
+  background-size: 38px;
+}
+#frame-right {
+  right: 0;
+  background-image: url("images/frame-right.png");
+  background-position: center right;
+}
+
+main,
+#map {
+  position: fixed;
+  top: 34px;
+  bottom: 32px;
+  left: 38px;
+  right: 36px;
+  overflow: hidden;
+  z-index: 1;
+  background: #041147;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.main {
+    background: transparent;
+    margin: 58px 36px 32px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 36px;
+}
+
+#map {
+  transition: all 0.25s ease-in-out;
+  z-index: 10;
+  opacity: 1;
+}
+
+#map.bg {
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.background {
+  aspect-ratio: 1415 / 2274;
+
+  /* 2. Mimic 'background-size: contain' */
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+
+  /* 3. The background image itself */
+  position: relative;
+  background-image: url("images/map.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#map .clickable {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+  position: absolute;
+  bottom: 50px;
+  left: 12%;
+}
+
+#map.bg .clickable {
+  opacity: 0;
+}
+
+#map svg {
+  width: 56%;
+  height: 52%;
+  position: absolute;
+  left: 21%;
+  top: 21%;
+  stroke-dasharray: 15 30;
+  filter: drop-shadow(0 0 2px red) drop-shadow(0 0 3px red)
+    drop-shadow(0 0 10px red);
+}
+
+.container,
+.container-inner {
+  position: relative;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.container {
+  border: solid 4px var(--color-red);
+  width: 75%;
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+.container-inner {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.content {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: var(--content-padding);
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fee9cd;
+  box-shadow: inset 0 0 2px 2px #daa79f;
+  border-color: var(--color-red);
+  text-align: center;
+  padding: var(--content-padding);
+}
+
+#title,
+#title > * {
+  color: var(--color-red);
+}
+
+#title img {
+  width: 64px;
+  height: 64px;
+  margin-right: 8px;
+}
+
+#countdown {
+  border-color: var(--color-blue);
+  border-width: 4px;
+  font-size: 28px;
+  padding: var(--content-padding);
+  text-shadow: 1px 1px 10px #fff, 1px 1px 10px #ccc;
+}
+
+#location-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  gap: 12px;
+  min-width: 50%;
+}
+
+#location-image {
+  width: 136px;
+  height: 128px;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  background-image: url("./images/landmarks.png");
+  background-size: cover;
+  background-position: center left;
+  background-repeat: no-repeat;
+  border: solid 2px var(--color-red);
+}
+
+#quote {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.pixel-icy-frame {
+  border: 2px solid #005a8d;
+  box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px #98ffff, 0 0 0 8px #0d121f;
+  background-color: #1a233b;
+  color: #98ffff;
+}
+
+.lights-container::before,
+.lights-container::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  bottom: -8px;
+  width: 10px;
+  background-image: repeating-radial-gradient(
+      circle at center,
+      var(--color-red-lights) 0,
+      var(--color-red-lights) 3px,
+      transparent 3px,
+      transparent 16px
+    ),
+    repeating-radial-gradient(
+      circle at center,
+      #008000 0,
+      #008000 3px,
+      transparent 3px,
+      transparent 16px
+    );
+  background-size: 10px 16px;
+  background-position: 0 0, 0 8px;
+}
+
+.lights-container::before {
+  left: -14px;
+}
+.lights-container::after {
+  right: -14px;
+}
+
+.lights-container-inner {
+  position: relative;
+}
+.lights-container-inner::before,
+.lights-container-inner::after {
+  content: "";
+  position: absolute;
+  left: -6px;
+  right: -12px;
+  height: 10px;
+
+  background-image: repeating-radial-gradient(
+      circle at center,
+      var(--color-red-lights) 0,
+      var(--color-red-lights) 3px,
+      transparent 3px,
+      transparent 16px
+    ),
+    repeating-radial-gradient(
+      circle at center,
+      #008000 0,
+      #008000 3px,
+      transparent 3px,
+      transparent 16px
+    );
+  background-size: 16px 10px;
+  background-position: 0 0, 8px 0;
+}
+.lights-container-inner::before {
+  top: -14px;
+}
+.lights-container-inner::after {
+  bottom: -14px;
+}
+
+@media (min-width: 768px) {
+  * {
+    font-family: "Pixelify Sans", "Tiny5", monospace, serif;
+    font-size: 36px;
+  }
+
+  #title img {
+    width: 96px;
+    height: 96px;
+    margin-right: 24px;
+  }
+}

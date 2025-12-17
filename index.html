@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sample HTML Page</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Tiny5&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="frame-tl"></div>
+    <div id="frame-tr"></div>
+    <div id="frame-bl"></div>
+    <div id="frame-br"></div>
+    <div id="frame-top"></div>
+    <div id="frame-bottom"></div>
+    <div id="frame-right"></div>
+    <div id="frame-left"></div>
+    <div id="map" class="bg">
+      <div class="background">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="-95.271 -399.31 824.1386 1187.9565"
+          preserveAspectRatio="none"
+        >
+          <path
+            style="stroke: rgb(255, 0, 0); fill: none; stroke-width: 10px"
+            d="M -95.271 -399.31 C -79.531 -393.014 -38.26 -376.912 -29.891 -368.543 C -16.272 -354.924 -19.338 -331.069 -6.816 -318.547 C 8.383 -303.348 26.538 -301.834 35.488 -283.935 C 55.527 -243.857 29.559 -186.026 62.409 -153.176 C 93.288 -122.297 122.704 -85.19 154.71 -53.183 C 171.242 -36.652 210.449 -32.057 223.935 -18.571 C 245.017 2.511 323.664 -45.229 331.619 -53.183 C 357.901 -79.466 270.028 -122.295 289.314 -160.867 C 311.375 -204.988 391.594 -202.443 412.382 -160.867 C 420.496 -144.638 417.291 -96.551 408.536 -87.796 C 402.126 -81.386 414.946 -55.747 408.536 -49.338 C 400.048 -40.849 398.311 -12.191 385.461 0.658 C 339.492 46.627 259.75 76.974 197.014 108.342 C 161.461 126.119 119.856 121.924 85.484 139.109 C 72.574 145.564 85.19 158.633 77.793 166.03 C 71.659 172.164 60.851 171.434 54.718 177.568 C 46.747 185.538 23.072 295.91 39.334 312.172 C 57.552 330.39 104.592 335.369 123.943 316.018 C 148.534 291.427 214.093 163.88 258.548 208.334 C 263.675 213.462 253.42 233.973 258.548 239.101 C 276.004 256.558 270.085 313.998 270.085 342.939 C 270.085 350.906 265.015 387.865 270.085 392.935 C 293.811 416.661 327.019 361.415 347.002 381.398 C 381.465 415.861 289.158 438.929 323.927 473.698 C 336.077 485.848 375.828 471.757 389.307 485.236 C 396.998 492.927 385.461 519.848 393.152 527.54 C 411.334 545.722 447.874 551.495 466.224 569.844 C 476.091 579.711 459.715 618.361 466.224 631.378 C 471.695 642.322 491.771 645.388 496.99 650.607 C 514.948 668.565 475.559 729.726 470.069 735.216 C 466.508 738.778 454.009 811.456 423.919 781.366 C 411.044 768.491 426.18 732.956 431.611 727.524 C 450.623 708.513 479.952 694.566 496.99 677.528 C 526.825 647.694 531.603 558.916 531.603 512.157 C 550.855 492.905 484.098 464.871 508.528 416.01 C 512.822 407.422 533.372 395.012 539.295 389.089 C 559.011 369.374 582.35 393.686 589.291 400.627 C 594.463 405.799 606.616 410.26 612.366 416.01 C 637.122 440.766 607.192 499.291 635.441 527.54 C 656.495 548.594 705.239 531.959 723.896 550.615 C 747.915 574.634 677.281 604.921 673.9 608.303 C 664.146 618.056 673.9 689.122 673.9 704.449"
+            id="santa-path"
+            pathLength="30"
+          />
+        </svg>
+      </div>
+      <div class="container pixel-icy-frame clickable">Show Map</div>
+    </div>
+    <div class="main">
+      <div id="title" class="container">
+        <img
+          src="./images/santa.png"
+          alt="Santa Claus"
+          width="64"
+          height="64"
+        />
+        <div>Santa Claus is bringing your gift!</div>
+      </div>
+      <div id="countdown" class="container">
+        <span id="countdown-day"></span> days left
+      </div>
+      <div class="container lights-container">
+        <div class="container-inner lights-container-inner">
+          <div class="content">
+            <div style="font-size: 16px">Currently in:</div>
+            <div id="location-container">
+              <div id="location-title"></div>
+              <div id="location-image"></div>
+            </div>
+            <div id="quote"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container pixel-icy-frame clickable">Show Map</div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
