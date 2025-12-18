@@ -200,12 +200,40 @@ let animateInterval = null;
 let animateOffset = 0;
 let daysLeft = 0;
 
+function positionIconAtPercent(percent) {
+  const path = document.querySelector("svg path");
+  const santa = document.querySelector("#santa-sleigh");
+  const svg = document.querySelector("svg");
+
+  const svgLayout = {
+    left: 21,
+    top: 21,
+    width: 56,
+    height: 52,
+  };
+
+  const totalLength = path.getTotalLength();
+
+  const point = path.getPointAtLength(totalLength * percent);
+  const vb = svg.viewBox.baseVal;
+
+  const relativeX = (point.x - vb.x) / vb.width;
+  const relativeY = (point.y - vb.y) / vb.height;
+
+  const finalLeft = svgLayout.left + relativeX * svgLayout.width;
+  const finalTop = svgLayout.top + relativeY * svgLayout.height;
+
+  santa.style.left = `${finalLeft}%`;
+  santa.style.top = `${finalTop}%`;
+}
+
 const animatePath = () => {
   const svg = document.querySelector("#map svg");
   animateOffset += 0.5;
 
   svg.style["strokeDasharray"] = `${animateOffset} 30`;
   if (animateOffset >= 30 - daysLeft) {
+    positionIconAtPercent((30 - daysLeft) / 30);
     animateOffset = 0;
     clearInterval(animateInterval);
   }
@@ -225,6 +253,14 @@ const animatePath = () => {
   daysLeft = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
 
   countdownDayElem.innerText = daysLeft;
+
+  if (daysLeft <= 0) {
+    locationTitleElem.innerText = "Your Hands!";
+    quoteElem.innerText = "Merry Christmas! - Santa Claus";
+    locationImageElem.style["background"] =
+      "url('images/package.png') center center no-repeat";
+    return;
+  }
 
   const [day, location, quote, source, imageIndex = 0] =
     data[Math.max(0, 30 - daysLeft)];

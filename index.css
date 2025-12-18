@@ -116,15 +116,15 @@ body {
 }
 
 main {
-    background: transparent;
-    margin: 58px 36px 52px 38px;
-    padding-bottom: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 36px;
-    overflow: auto;
+  background: transparent;
+  margin: 58px 36px 52px 38px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 36px;
+  overflow: auto;
 }
 
 #map {
@@ -151,13 +151,14 @@ main {
 }
 
 #santa-sleigh {
-    background: url("images/santa_sleigh.png") center center no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 16%;
-    left: 28%;
-    width: 46px;
-    height: 51px;
+  background: url("images/santa_sleigh.png") center center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 16%;
+  left: 28%;
+  width: 46px;
+  height: 51px;
+  animation: santaFade 2s ease-in-out infinite;
 }
 
 #map .clickable {
@@ -344,7 +345,8 @@ main {
 }
 
 @media (min-width: 768px) {
-  html, body {
+  html,
+  body {
     font-size: 36px;
   }
 
@@ -357,5 +359,17 @@ main {
   #santa-sleigh {
     top: 18%;
     width: 74px;
+  }
+}
+
+@keyframes santaFade {
+  0%,
+  100% {
+    opacity: 0.1;
+    filter: drop-shadow(0 0 0px rgba(255, 215, 0, 0));
+  }
+  40%, 60% {
+    opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
   }
 }
